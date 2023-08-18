@@ -1,1 +1,1 @@
-# typescript-skeleton
+# nodejs-typescript-esm-project-skeleton
