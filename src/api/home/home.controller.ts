@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express"
 
-export class HomeController {
+export default class HomeController {
   static getAppInfo = async (
     _req: Request,
     res: Response,

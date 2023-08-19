@@ -14,9 +14,9 @@ beforeAll(async () => {
   agent = await initAgent()
 })
 
-describe("GET /", () => {
+describe("GET /home/", () => {
   it("should return 200 OK", async () => {
-    const response = await agent.get(`${config.app.apiPathPrefix}/`)
+    const response = await agent.get(`${config.app.apiPathPrefix}/home/`)
 
     expect(response.status).toBe(200)
     expect(response.body).toEqual({

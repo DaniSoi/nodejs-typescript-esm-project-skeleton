@@ -4,7 +4,7 @@ import helmet from "helmet"
 import morgan from "morgan"
 
 import config from "./config/index.js"
-import routes from "./routes/index.js"
+import apiRouter from "./api/api.router.js"
 import { httpErrorHandlerMiddleware } from "./middleware/index.js"
 
 export const createApp = (): express.Application => {
@@ -26,7 +26,7 @@ export const createApp = (): express.Application => {
   }
 
   // API Routes
-  app.use(config.app.apiPathPrefix, routes)
+  app.use(config.app.apiPathPrefix, apiRouter)
 
   // Error Middleware
   app.use(httpErrorHandlerMiddleware)

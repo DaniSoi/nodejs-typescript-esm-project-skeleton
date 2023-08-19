@@ -1,6 +1,6 @@
 import { Router } from "express"
 
-import { HomeController } from "../components/home/home.controller.js"
+import HomeController from "./home.controller.js"
 
 const router = Router()
 
