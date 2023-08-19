@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express"
+import httpErrors, { isHttpError, HttpError } from "http-errors"
 
 const httpErrorHandlerMiddleware = (
   error: Error,
@@ -6,11 +7,16 @@ const httpErrorHandlerMiddleware = (
   res: Response,
   _next: NextFunction,
 ): void => {
-  console.error(error) // Log the error for debugging purposes
+  const httpError: HttpError = isHttpError(error)
+    ? error
+    : new httpErrors.InternalServerError()
 
-  // Send Internal Server Error response
-  res.status(500).json({
-    error: "Internal Server Error",
+  if (httpError.statusCode >= 500) {
+    console.error(error)
+  }
+
+  res.status(httpError.statusCode).json({
+    message: httpError.message,
   })
 }
 
