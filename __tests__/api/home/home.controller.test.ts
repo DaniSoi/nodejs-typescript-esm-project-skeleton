@@ -1,10 +1,11 @@
 import supertest, { SuperAgentTest } from "supertest"
 
-import { createApp } from "../../src/app.js"
-import config from "../../src/config/index.js"
+import { createApp } from "../../../src/app.js"
+import { config } from "../../../src/config/index.js"
 
 const initAgent = async (): Promise<SuperAgentTest> => {
-  const app = createApp()
+  // instead of importing config, we can mock it
+  const app = createApp(config)
   return supertest.agent(app)
 }
 

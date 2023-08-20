@@ -3,11 +3,11 @@ import express from "express"
 import helmet from "helmet"
 import morgan from "morgan"
 
-import config from "./config/index.js"
-import apiRouter from "./api/api.router.js"
+import { Config } from "./config/index.js"
+import { apiRouter } from "./api/index.js"
 import { httpErrorHandlerMiddleware } from "./middleware/index.js"
 
-export const createApp = (): express.Application => {
+export const createApp = (config: Config): express.Application => {
   const app = express()
 
   app.use(cors())
