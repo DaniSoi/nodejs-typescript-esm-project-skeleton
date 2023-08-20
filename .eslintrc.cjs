@@ -120,6 +120,14 @@ module.exports = {
         leadingUnderscore: "allow",
       },
       {
+        selector: "objectLiteralMethod",
+        format: null, // allow any format for object literal methods
+      },
+      {
+        selector: "objectLiteralProperty",
+        format: null, // allow any format for object literal properties
+      },
+      {
         selector: "variable",
         format: ["camelCase", "UPPER_CASE", "PascalCase"],
       },

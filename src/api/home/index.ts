@@ -1,3 +1,3 @@
-import homeRouter from "./home.router.js";
+import homeRouter from "./home.router.js"
 
-export default homeRouter;
+export default homeRouter
